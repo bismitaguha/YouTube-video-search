@@ -1,8 +1,8 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 
-class VideoSerializer(serializers.Serializer):
-    video_id = serializers.CharField(max_length=30)
-    title = serializers.CharField()
-    duration = serializers.IntegerField()
-    url = serializers.CharField()
-    thumbnail = serializers.CharField()
+from .models import Video
+
+class VideoSerializer(ModelSerializer):
+    class Meta:
+        model = Video
+        fields = ['video_id', 'title', 'duration', 'url', 'thumbnail']

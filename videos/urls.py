@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from videos.views import ListVideo
 
 urlpatterns = [
-    path('', views.listVideo.as_view()),
+    path('', ListVideo.as_view({'get': 'list'})),
 ]
